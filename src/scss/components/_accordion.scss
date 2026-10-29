@@ -1,0 +1,76 @@
+@use "../tools" as t;
+
+.accordion {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+
+  &__item {
+    border-radius: 12px;
+    background-color: t.$colorTwo;
+    box-shadow: 3px 3px 8px rgba(t.$colorOne, 0.4);
+    transition: background-color 0.3s ease;
+    &:not(:last-child) {
+      margin-bottom: 5px;
+    }
+  }
+
+  &__heading {
+  }
+
+  &__button {
+    @include t.flex-mix(space-between, center, row, 20px);
+    width: 100%;
+    padding: 12px;
+    padding-right: 20px;
+    border-radius: 12px;
+    background-color: t.$colorTwo;
+    cursor: pointer;
+
+    @media (hover: hover) {
+      &:hover {
+        background-color: rgba(t.$colorFour, 0.4);
+      }
+    }
+  }
+
+  &__button[aria-expanded="true"] &__icon {
+    transform: rotate(180deg);
+  }
+
+  &__title {
+    color: t.$colorOne;
+    font-weight: 500;
+    line-height: 1.2;
+    font-family: t.$fontText;
+    text-align: left;
+    text-wrap: balance;
+    @include t.fluid-prop("font-size", 16, 20, 320, 1200);
+  }
+
+  &__icon {
+    flex-shrink: 0;
+    width: 18px;
+    fill: none;
+    stroke: t.$colorThree;
+
+    transition: transform 0.3s ease;
+  }
+
+  &__content {
+    max-height: 0;
+    padding: 0 10px;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  &__content-body {
+    padding: 10px 0;
+  }
+
+  &__content-text {
+    @include t.fluid-prop("font-size", 14, 18, 320, 1200);
+    color: rgba(t.$colorOne, 0.7);
+    text-wrap: balance;
+  }
+}

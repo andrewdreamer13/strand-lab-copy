@@ -1,0 +1,70 @@
+@use "../tools" as t;
+@use "../base";
+@use "../components";
+
+.page-404 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 24px;
+  background-color: t.$colorTwo;
+  color: t.$colorOne;
+  font-family: t.$fontText;
+  text-align: center;
+
+  &__container {
+    width: 100%;
+    max-width: 600px;
+    background-color: t.$colorTwo;
+    @include t.fluid-prop("padding", 14, 28, 320, 1200);
+    border-radius: 12px;
+    box-shadow: 0px 10px 30px rgba(t.$colorOne, 0.4);
+  }
+
+  &__badge {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    @include t.fluid-prop("font-size", 24, 44, 320, 768);
+    margin-bottom: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0px 10px 30px rgba(t.$colorOne, 0.4);
+    color: t.$colorThree;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  &__title {
+    @include t.fluid-prop("font-size", 26, 44, 320, 768);
+    margin-bottom: 1rem;
+    font-weight: 700;
+    line-height: 1.2;
+    font-family: t.$fontTitle;
+  }
+
+  &__text {
+    @include t.fluid-prop("font-size", 14, 18, 320, 768);
+    margin-bottom: 2rem;
+    color: rgba(t.$colorOne, 0.7);
+    line-height: 1.6;
+    text-wrap: balance;
+  }
+
+  &__counter {
+    color: t.$colorThree;
+    font-weight: 700;
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  &__button {
+    width: 100%;
+    min-width: auto;
+    max-width: 250px;
+  }
+}
